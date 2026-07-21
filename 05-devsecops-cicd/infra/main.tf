@@ -88,6 +88,13 @@ resource "aws_security_group" "web_server" {
     cidr_blocks = ["0.0.0.0/0"]
     description = "HTTP traffic"
   }
+
+  ingress {
+  from_port   = 22
+  to_port     = 22
+  protocol    = "tcp"
+  cidr_blocks = ["0.0.0.0/0"]
+}
  
   dynamic "ingress" {
     for_each = length(var.allowed_ssh_cidrs) > 0 ? [1] : []

@@ -1,5 +1,6 @@
 
 # Cloud Engineering Portfolio
+[![DevSecOps Pipeline](https://github.com/Happouh2/Cloud-engineering-portfolio/actions/workflows/devsecops.yml/badge.svg)](https://github.com/Happouh2/Cloud-engineering-portfolio/actions/workflows/devsecops.yml)
 
 **Name:** Henry Appouh
 **Focus:** Cloud infrastructure, security automation, DevSecOps

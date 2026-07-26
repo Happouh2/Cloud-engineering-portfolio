@@ -1,0 +1,35 @@
+# .github/workflows/vuln-pipeline.yml
+name: Vulnerability Management Pipeline
+
+on:
+  schedule:
+    - cron: '0 7 * * *'   # 7:00 AM UTC daily
+  workflow_dispatch:        # adds a manual 'Run workflow' button
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 06-vulnerability-management-pipeline
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run pipeline
+        env:
+          NESSUS_URL: ${{ secrets.NESSUS_URL }}
+          NESSUS_ACCESS_KEY: ${{ secrets.NESSUS_ACCESS_KEY }}
+          NESSUS_SECRET_KEY: ${{ secrets.NESSUS_SECRET_KEY }}
+          MOCK_MODE: ${{ secrets.MOCK_MODE }}
+          SNOW_INSTANCE: ${{ secrets.SNOW_INSTANCE }}
+          SNOW_USERNAME: ${{ secrets.SNOW_USERNAME }}
+          SNOW_PASSWORD: ${{ secrets.SNOW_PASSWORD }}
+        run: python run_pipeline.py

@@ -1,0 +1,4 @@
+instance_type = "t2.micro"
+snow_instance = "https://dev409858.service-now.com/"
+snow_username = "admin"
+snow_password = "OxrhW$S^8Td3"

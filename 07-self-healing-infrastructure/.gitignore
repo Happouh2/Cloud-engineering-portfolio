@@ -1,0 +1,5 @@
+*.tfstate*
+.terraform/
+terraform.tfvars
+lambda_function.zip
+__pycache__/

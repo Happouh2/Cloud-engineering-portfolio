@@ -1,0 +1,141 @@
+{
+  "title": "Security Posture Overview",
+  "description": "",
+  "inputs": {
+    "input_global_trp": {
+      "options": {
+        "defaultValue": "-24h@h,now",
+        "token": "global_time"
+      },
+      "title": "Global Time Range",
+      "type": "input.timerange"
+    }
+  },
+  "defaults": {
+    "dataSources": {
+      "ds.search": {
+        "options": {
+          "queryParameters": {
+            "earliest": "$global_time.earliest$",
+            "latest": "$global_time.latest$"
+          }
+        }
+      },
+      "ds.spl2": {
+        "options": {
+          "queryParameters": {
+            "earliest": "$global_time.earliest$",
+            "latest": "$global_time.latest$"
+          }
+        }
+      }
+    },
+    "visualizations": {
+      "global": {
+        "showProgressBar": true
+      }
+    }
+  },
+  "visualizations": {
+    "viz_D3tihz2w": {
+      "options": {},
+      "type": "splunk.column",
+      "dataSources": {
+        "primary": "ds_QeIHtjWD"
+      }
+    },
+    "viz_JN9FgrDs": {
+      "options": {},
+      "type": "splunk.table",
+      "dataSources": {
+        "primary": "ds_UIvIOLiT"
+      }
+    },
+    "viz_Tn9NnKEh": {
+      "options": {},
+      "type": "splunk.line",
+      "dataSources": {
+        "primary": "ds_kbGK1fI6"
+      }
+    }
+  },
+  "dataSources": {
+    "ds_kbGK1fI6": {
+      "type": "ds.search",
+      "options": {
+        "query": "| savedsearch \"Vulnerability Pipeline Runs Over Time\""
+      },
+      "name": "Vulnerability Pipeline Runs Over Time"
+    },
+    "ds_QeIHtjWD": {
+      "type": "ds.search",
+      "options": {
+        "query": "| savedsearch \"Tickets Created Per Run\""
+      },
+      "name": "Tickets Created Per Run"
+    },
+    "ds_UIvIOLiT": {
+      "type": "ds.search",
+      "options": {
+        "query": "| savedsearch \"Latest Pipeline Run Summary\""
+      },
+      "name": "Latest Pipeline Run Summary"
+    }
+  },
+  "layout": {
+    "globalInputs": [
+      "input_global_trp"
+    ],
+    "layoutDefinitions": {
+      "layout_1": {
+        "options": {
+          "display": "auto",
+          "height": 960,
+          "width": 1440
+        },
+        "structure": [
+          {
+            "item": "viz_Tn9NnKEh",
+            "position": {
+              "h": 430,
+              "w": 520,
+              "x": 0,
+              "y": 0
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_D3tihz2w",
+            "position": {
+              "h": 300,
+              "w": 300,
+              "x": 520,
+              "y": 0
+            },
+            "type": "block"
+          },
+          {
+            "item": "viz_JN9FgrDs",
+            "position": {
+              "h": 300,
+              "w": 300,
+              "x": 820,
+              "y": 0
+            },
+            "type": "block"
+          }
+        ],
+        "type": "absolute"
+      }
+    },
+    "options": {},
+    "tabs": {
+      "items": [
+        {
+          "label": "New tab",
+          "layoutId": "layout_1"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# manifests/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: security-audit-svc
+spec:
+  selector:
+    app: security-audit
+  ports:
+    - port: 80
+      targetPort: 8080

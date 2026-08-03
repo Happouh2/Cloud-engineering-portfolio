@@ -1,0 +1,16 @@
+# manifests/network-policy.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: security-audit-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: security-audit
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              role: allowed-caller

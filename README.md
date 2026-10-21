@@ -1,43 +1,55 @@
 # Cloud & Security Engineering Portfolio
 
-Hands-on cloud, security and DevOps projects by Henry Appouh (PMP). Every project folder is self-contained: what it builds, how to reproduce it, what broke, and how it was torn down.
+Hands-on cloud, security and DevOps projects by Henry Appouh (PMP). Each project is built, broken on purpose, fixed, documented, evidenced with screenshots, and torn down.
 
-**Focus:** AWS (plus GCP/Azure foundations), Terraform, CI/CD security, detection and compliance automation, Kubernetes.
+**Focus:** AWS, Terraform, CI/CD, Kubernetes, security automation and cost-aware cloud engineering.
 
-## Projects
+Projects are independent: read them in any order.
 
-Status values: `Done` (built, verified, torn down), `In progress`, `Planned`. Update the Status column only when the project's README is complete.
+## Featured projects
+Start here. These show the strongest evidence of building, breaking and fixing real systems.
 
-| # | Project | Stack | Status |
-|---|---|---|---|
-| 03 | [Terraform VPC + web server](03-terraform-basics/) | Terraform, AWS | Done |
-| 04 | [Python security audit](04-python-security-audit/) | boto3 | Planned |
-| 05 | [DevSecOps CI/CD](05-devsecops-cicd/) | GitHub Actions, tfsec, Bandit, Trivy | Planned |
-| 06 | [Vulnerability management pipeline](06-vulnerability-management-pipeline/) | Nessus, ServiceNow, Python | Planned |
-| 07 | [Self-healing infrastructure](07-self-healing-infrastructure/) | CloudWatch, SNS, Lambda, ASG | Planned |
-| 08 | [Splunk security dashboard](08-splunk-security-dashboard/) | Splunk, HEC, SPL | Planned |
-| 09 | [Kubernetes platform engineering](09-kubernetes-platform-engineering/) | kind, EKS, IRSA | Planned |
-| 10 | [IAM federation and governance](10-iam-federation-identity-governance/) | Keycloak, OIDC, SAML, SCIM | Done |
+| Project | What it demonstrates | Evidence |
+|---|---|---|
+| [Self-healing infrastructure](self-healing-infrastructure/) | CloudWatch alarm to SNS to Lambda remediation, proven with a real CPU spike, plus four real issues diagnosed | [screenshots](self-healing-infrastructure/screenshots/) |
+| [Kubernetes platform engineering](kubernetes-platform-engineering/) | kind and EKS, autoscaling, network policy, IRSA | [screenshots](kubernetes-platform-engineering/screenshots/) |
+| [IAM federation and governance](iam-federation-identity-governance/) | OIDC flow by hand, SAML, and joiner/mover/leaver automation | [screenshots](iam-federation-identity-governance/screenshots/) |
 
-Folders not listed here are not yet published.
+## All projects
+Docs: R = README, A = architecture diagram, S = screenshots, T = troubleshooting log, B = break/fix write-up, E = explain-it page. Tick only what really exists.
+
+| Project | Stack | Status | R | A | S | T | B | E |
+|---|---|---|---|---|---|---|---|---|
+| [Linux hardening](linux-hardening/) | Amazon Linux, SSH, firewalld | Done | x | | | | | |
+| [Terraform VPC + web server](terraform-basics/) | Terraform, AWS | Done | x | | | | | |
+| [Python security audit](python-security-audit/) | boto3 | README needed | | | | | | |
+| [DevSecOps CI/CD](devsecops-cicd/) | GitHub Actions, tfsec, Bandit | README needed | | | | | | |
+| [Vulnerability management pipeline](vulnerability-management-pipeline/) | Nessus, ServiceNow, Python | README needed | | | | | | |
+| [Self-healing infrastructure](self-healing-infrastructure/) | CloudWatch, SNS, Lambda, ASG | Done | x | | | | | |
+| [Splunk security dashboard](splunk-security-dashboard/) | Splunk, HEC, SPL | Done | x | | | | | |
+| [Kubernetes platform engineering](kubernetes-platform-engineering/) | kind, EKS, IRSA | Done | x | | | | | |
+| [IAM federation and governance](iam-federation-identity-governance/) | Keycloak, OIDC, SAML, SCIM | Done | x | | | | | |
+
+## Screenshot gallery
+Add one headline image per featured project here once the files exist (a broken image link looks worse than none):
+
+<!--
+![Alarm transitions to ALARM](self-healing-infrastructure/screenshots/05-alarm-in-alarm.png)
+![Pod assumes a scoped IAM role](kubernetes-platform-engineering/screenshots/09-pod-irsa-identity.png)
+![Decoded ID token claims](iam-federation-identity-governance/screenshots/05-jwt-claims.png)
+-->
 
 ## How every project is documented
-
-1. What it does and why (one paragraph)
-2. Architecture (diagram or short list)
-3. Reproduce it (exact commands)
-4. Proof it works (output, screenshots with identifiers redacted)
-5. Troubleshooting (`troubleshooting.md`)
-6. Lessons learned (`lessons-learned.md`)
-7. Cost and cleanup (what costs money, how it was destroyed)
-8. Security notes (known shortcuts and the production fix)
+1. Overview and architecture diagram
+2. Proof it works: named screenshots with identifiers removed (in each project's `screenshots/` folder)
+3. Break/fix scenarios: failures introduced on purpose, with the diagnosis steps
+4. Why I configured it this way (decisions and rejected alternatives)
+5. Troubleshooting log with exact error text
+6. Reproduce it, cost and cleanup, security notes
 
 ## Security hygiene
-
-- No credentials in the repo. `.env`, `*.tfvars`, `*.tfstate*`, keys and tokens are ignored; `.env.example` files show variable names only.
-- Secrets are scanned before pushing (see `.gitignore` notes and the leak-check commands in the Field Manual).
-- Lab shortcuts (for example `verify=False` against local self-signed certs, open ports in throwaway labs) are labelled in each project README.
+- No credentials in the repo. `.env`, `*.tfvars` and state files are ignored, and `.env.example` shows names only.
+- Lab shortcuts are labelled in each README with the production fix.
 
 ## Contact
-
 GitHub: [happouh2](https://github.com/happouh2)

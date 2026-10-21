@@ -16,7 +16,7 @@ jobs:
       - name: Run tfsec
         uses: aquasecurity/tfsec-action@v1.0.0
         with:
-          working_directory: 05-devsecops-cicd/infra
+          working_directory: devsecops-cicd/infra
           soft_fail: true
 
   scan-python:
@@ -34,4 +34,4 @@ jobs:
         run: pip install bandit
 
       - name: Run Bandit
-        run: bandit -r 05-devsecops-cicd/scripts -f screen
+        run: bandit -r devsecops-cicd/scripts -f screen

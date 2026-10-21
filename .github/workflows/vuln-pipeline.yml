@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: 06-vulnerability-management-pipeline
+        working-directory: vulnerability-management-pipeline
     steps:
       - uses: actions/checkout@v4
 

@@ -22,9 +22,9 @@ Docs: R = README, A = architecture diagram, S = screenshots, T = troubleshooting
 |---|---|---|---|---|---|---|---|---|
 | [Linux hardening](linux-hardening/) | Amazon Linux, SSH, firewalld | Done | x | | | | | |
 | [Terraform VPC + web server](terraform-basics/) | Terraform, AWS | Done | x | | | | | |
-| [Python security audit](python-security-audit/) | boto3 | README needed | | | | | | |
-| [DevSecOps CI/CD](devsecops-cicd/) | GitHub Actions, tfsec, Bandit | README needed | | | | | | |
-| [Vulnerability management pipeline](vulnerability-management-pipeline/) | Nessus, ServiceNow, Python | README needed | | | | | | |
+| [Python security audit](python-security-audit/) | boto3 | Done | | | | | | |
+| [DevSecOps CI/CD](devsecops-cicd/) | GitHub Actions, tfsec, Bandit | Done | | | | | | |
+| [Vulnerability management pipeline](vulnerability-management-pipeline/) | Nessus, ServiceNow, Python | Done | | | | | | |
 | [Self-healing infrastructure](self-healing-infrastructure/) | CloudWatch, SNS, Lambda, ASG | Done | x | | | | | |
 | [Splunk security dashboard](splunk-security-dashboard/) | Splunk, HEC, SPL | Done | x | | | | | |
 | [Kubernetes platform engineering](kubernetes-platform-engineering/) | kind, EKS, IRSA | Done | x | | | | | |

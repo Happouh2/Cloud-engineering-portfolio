@@ -1,0 +1,14 @@
+table ip lab {
+  chain forward {
+    type filter hook forward priority 0; policy drop;
+    ct state established,related accept
+    iifname "r1-a" oifname "r1-b" tcp dport { 80, 443 } accept
+    iifname "r1-a" oifname "r1-w" accept
+    iifname "r1-b" oifname "r1-w" accept
+    counter drop
+  }
+  chain postrouting {
+    type nat hook postrouting priority 100;
+    oifname "r1-w" masquerade
+  }
+}

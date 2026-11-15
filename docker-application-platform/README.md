@@ -83,3 +83,8 @@ All four services healthy again and the site answering 200 OK.
     curl localhost:8080/health
     docker compose down           # stop, keep the data
     docker compose down -v        # stop and delete the data
+
+## Tests and CI
+- tests/ holds 7 pytest unit tests that use a fake database, so they run in under a second with no Postgres or Redis.
+- Run every check locally with ./scripts/ci-local.sh (ruff, pytest and pip-audit in a throwaway container).
+- Every pull request runs the items-api CI pipeline: lint, tests, pip-audit, image build, Trivy scan and a Compose smoke test. See ../cicd-pipeline/README.md.

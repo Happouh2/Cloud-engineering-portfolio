@@ -47,7 +47,7 @@ def count(resp):
 
 @app.get("/health")
 def health():
-    return jsonify(status="healthy")
+    return jsonify(status="ok")
 
 
 @app.get("/ready")

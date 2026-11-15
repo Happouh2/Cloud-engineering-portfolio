@@ -1,0 +1,7 @@
+# Lint settings: which checks ruff runs on our Python files.
+line-length = 120
+target-version = "py312"
+
+[lint]
+# E and F: real errors (bad syntax, unused or missing names). I: imports in order. B: likely bugs.
+select = ["E", "F", "I", "B"]
